@@ -1,0 +1,74 @@
+.TH PACKITUP 1 "June 2024" "PackItUp 0.5.2" "User Commands"
+.SH NAME
+packitup \- generate project structure and contents as Markdown
+.SH SYNOPSIS
+.B packitup
+[\fIOPTIONS\fR] [\fIPATH\fR]
+.SH DESCRIPTION
+.B packitup
+is a tool that generates a Markdown representation of a project's directory structure and file contents. It's designed to help developers quickly document their project structure, making it easier to share or review project layouts.
+.SH OPTIONS
+.TP
+.BR \-t ", " \-\-tree
+Generate file tree only (no file contents)
+.TP
+.BR \-l ", " \-\-list
+List files and directories in the specified directory
+.TP
+.BR \-s ", " \-\-singlefile
+Ignore file splitting and return as a single file
+.TP
+.BR \-p ", " \-\-purge
+Purge all saved PackItUp data
+.TP
+.BR \-h ", " \-\-help
+Show this help message and exit
+.SH ARGUMENTS
+.TP
+.I PATH
+Path to pack (default: current directory)
+.SH OUTPUT
+PackItUp generates two types of output:
+.TP
+1. A local output directory in the current working directory
+.TP
+2. A directory in the user's home folder (.packitup)
+.PP
+Both directories contain:
+.IP \[bu] 2
+A Markdown file with the project structure
+.IP \[bu]
+Subdirectories for split large files (if any)
+.PP
+The Markdown content is also automatically copied to the clipboard.
+.SH CONFIGURATION
+PackItUp skips the following folders by default:
+.br
+node_modules, venv, .venv, env, .env, pycache, dist, build, .git, .idea, .vscode, vendor, bower_components, jspm_packages, packages
+.SH EXAMPLES
+.TP
+Generate full project structure and contents for the current directory:
+.B packitup
+.TP
+Generate only the file tree for a specific directory:
+.B packitup \-t /path/to/your/project
+.TP
+List files and directories in the current directory:
+.B packitup \-l
+.TP
+Generate project structure without splitting large files:
+.B packitup \-s
+.TP
+Purge all saved PackItUp data:
+.B packitup \-p
+.SH AUTHOR
+Written by James Fincher.
+.SH REPORTING BUGS
+Report bugs to: https://github.com/jamesfincher/packitup/issues
+.SH COPYRIGHT
+Copyright \[co] 2024 James Fincher. License MIT: <https://opensource.org/licenses/MIT>
+.br
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+.SH SEE ALSO
+Full documentation at: <https://github.com/jamesfincher/packitup>
